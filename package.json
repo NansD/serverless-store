@@ -5,7 +5,7 @@
   "main": "getting-started.js",
   "dependencies": {
     "base-64": "^0.1.0",
-    "mongoose-sanitizer": "^1.0.0",
+    "mongo-sanitize": "^1.0.0",
     "mongoose-unique-validator": "^2.0.1",
     "serverless": "^1.30.3"
   },

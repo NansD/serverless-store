@@ -2,11 +2,12 @@ const queryString = require('querystring')
 
 const User = require('../models/user')
 const Basket = require('../models/basket')
+const sanitize = require('mongo-sanitize')
 require('./db') // setup database connexion
 module.exports.signIn = async (event, context) => {
   let statusCode = 200
   let message = 'signIn endpoint called, user successfully registrated'
-  let formData = queryString.parse(event.body)
+  let formData = sanitize(queryString.parse(event.body))
   // TODO: implement email uniqueness, mandatory fields ... email.toLowerCase
 
   // create Basket

@@ -1,5 +1,4 @@
 var mongoose = require('mongoose')
-var sanitizerPlugin = require('mongoose-sanitizer')
 
 // delete already existing model because of this issue : https://github.com/kriasoft/react-starter-kit/issues/1418
 // see this answer : https://github.com/kriasoft/react-starter-kit/issues/1418#issuecomment-334913935
@@ -14,6 +13,5 @@ const basketLineSchema = mongoose.Schema({
 const basketSchema = mongoose.Schema({
   basketLines: [basketLineSchema]
 })
-basketSchema.plugin(sanitizerPlugin)
 const Basket = mongoose.model('Baskets', basketSchema)
 module.exports = Basket

@@ -1,6 +1,7 @@
 'use strict'
 
 const User = require('../models/user')
+const sanitize = require('mongo-sanitize')
 require('./db') // setup database connexion
 
 // TODO: use something else than GET for a authentication request ...
@@ -8,7 +9,7 @@ require('./db') // setup database connexion
 module.exports.auth = async (event, context) => {
   var statusCode = 0
   var message = 'auth endpoint called, nothing happened'
-  const queryStringParameters = event.queryStringParameters
+  const queryStringParameters = sanitize(event.queryStringParameters)
   if (!queryStringParameters.email || !queryStringParameters.password) {
     statusCode = 404
     message = 'Wrong parameters'
