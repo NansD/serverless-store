@@ -4,7 +4,6 @@ const User = require('../models/user')
 require('./db') // setup database connexion
 
 // TODO: use something else than GET for a authentication request ...
-// TODO: use a proper user management system (give users authorizations, access tokens ...)
 
 module.exports.auth = async (event, context) => {
   var statusCode = 0

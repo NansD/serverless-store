@@ -1,5 +1,7 @@
 var mongoose = require('mongoose')
 var uniqueValidator = require('mongoose-unique-validator')
+var sanitizerPlugin = require('mongoose-sanitizer')
+
 // delete already existing model because of this issue : https://github.com/kriasoft/react-starter-kit/issues/1418
 // see this answer : https://github.com/kriasoft/react-starter-kit/issues/1418#issuecomment-334913935
 // this line doesn't crash if no model exists
@@ -19,6 +21,7 @@ const userSchema = new mongoose.Schema({
   basketId: mongoose.Schema.Types.ObjectId
 })
 userSchema.plugin(uniqueValidator)
+userSchema.plugin(sanitizerPlugin)
 const User = mongoose.model('Users', userSchema)
 
 module.exports = User

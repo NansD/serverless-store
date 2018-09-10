@@ -12,6 +12,8 @@ module.exports.signIn = async (event, context) => {
   // create Basket
   const user = await Basket.create({}).then((basket) => {
     formData.basketId = basket._id
+    formData.email = formData.email.toLocaleLowerCase()
+    formData.validateSync()
     return User.create(formData).then((user) => {
       var error = user.validateSync()
       console.log(error)
