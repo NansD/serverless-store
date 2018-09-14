@@ -17,7 +17,6 @@ module.exports.signIn = async (event, context) => {
     formData.validateSync()
     return User.create(formData).then((user) => {
       var error = user.validateSync()
-      console.log(error)
       return user
     })
   }).catch((error) => {

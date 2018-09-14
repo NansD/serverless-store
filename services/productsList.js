@@ -7,7 +7,6 @@ module.exports.productsList = async (event, context) => {
   var statusCode = 200
   var message = 'productsList endpoint called'
   const queryParameters = sanitize(event.queryStringParameters)
-  console.log(queryParameters)
   const products = await Product.find(queryParameters, function (err, docs) {
     if (err || docs.length === 0) {
       statusCode = 404

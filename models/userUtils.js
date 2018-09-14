@@ -18,7 +18,6 @@ userUtils.getUserAndBasket = async function (userId) {
       return document
     })
   var promises = basket.basketLines.map(async function (basketLine) {
-    console.log(basketLine)
     const productId = basketLine.productId
     const productInformation = await Product.findById(productId).exec()
 
@@ -27,12 +26,10 @@ userUtils.getUserAndBasket = async function (userId) {
         quantity: basketLine.quantity,
         product: productInformation
       }
-      // console.log(bLineToReturn)
       resolve(bLineToReturn)
     })
   })
 
-  console.log(promises[0])
   return Promise.all(promises)
     .then((data) => {
       const filledBasket = {
