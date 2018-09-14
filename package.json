@@ -10,9 +10,9 @@
     "serverless": "^1.31.0"
   },
   "devDependencies": {
-    "mongoose": "^5.2.10",
+    "mongoose": "^5.2.14",
     "qs": "^6.5.2",
-    "serverless-offline": "^3.25.10"
+    "serverless-offline": "^3.25.11"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
