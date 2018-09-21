@@ -14,6 +14,9 @@ module.exports.updateBasket = (event, context) => {
   var message = 'updateBasket endpoint called'
   const formData = sanitize(qs.parse(event.body))
   const basket = formData.basket
+  if (basket.basketLines === undefined) {
+    basket.basketLines = []
+  }
   const basketLines = basket.basketLines.map(basketLine => {
     return {
       quantity: basketLine.quantity,

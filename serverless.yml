@@ -97,6 +97,12 @@ functions:
       - http:
           path: updateBasket
           method: PUT
+  buy:
+    handler: services/buy.buy
+    events:
+      - http:
+          path: buy
+          method: POST
 # adding these two lines
 plugins:
   - serverless-offline
